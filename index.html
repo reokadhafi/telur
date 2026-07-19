@@ -43,7 +43,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-white rounded-xl shadow-sm p-5">
                 <h3 class="text-sm font-bold text-gray-700 mb-2 flex items-center gap-1">
-                    <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2m0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     Grafik Tetas Per Umur Hari (Butir)
                 </h3>
                 <div class="h-64">
@@ -52,7 +52,7 @@
             </div>
             <div class="bg-white rounded-xl shadow-sm p-5">
                 <h3 class="text-sm font-bold text-gray-700 mb-2 flex items-center gap-1">
-                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2m0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     Grafik Kematian Per Umur Hari (Butir)
                 </h3>
                 <div class="h-64">
@@ -61,8 +61,9 @@
             </div>
         </div>
 
+        <!-- AREA KONTEN TENGAH: INPUT & BATCH AKTIF -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- SISI KIRI: INPUT UTAMA & LOG RIWAYAT -->
+            <!-- SISI KIRI: INPUT UTAMA & DATABASE TOOLS -->
             <div class="md:col-span-1 space-y-6">
                 <!-- Form Input Batch Awal -->
                 <div class="bg-white rounded-xl shadow-sm p-5">
@@ -101,22 +102,11 @@
                         </label>
                     </div>
                 </div>
-
-                <!-- Riwayat Aktivitas Log -->
-                <div class="bg-white rounded-xl shadow-sm p-5">
-                    <div class="flex justify-between items-center mb-2">
-                        <h2 class="text-sm font-bold">Riwayat Koreksi Log</h2>
-                        <button onclick="resetSemuaData()" class="text-[10px] text-red-500 hover:underline">Reset Semua Data</button>
-                    </div>
-                    <div id="ageLogs" class="space-y-2 max-h-60 overflow-y-auto pr-1 text-[11px]">
-                        <!-- Log data riwayat -->
-                    </div>
-                </div>
             </div>
 
             <!-- SISI KANAN: DAFTAR INKUBASI AKTIF DENGAN SUB-MENU TERSEMBUNYI -->
             <div class="md:col-span-2">
-                <div class="bg-white rounded-xl shadow-sm p-5 min-h-[400px]">
+                <div class="bg-white rounded-xl shadow-sm p-5 min-h-[320px]">
                     <h2 class="text-lg font-bold mb-4">Daftar Inkubasi Aktif</h2>
                     <div id="eggList" class="space-y-4">
                         <!-- Card batch aktif ter-render disini -->
@@ -124,6 +114,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- AREA PALING BAWAH: RIWAYAT KOREKSI LOG (FULL WIDTH) -->
+        <div class="bg-white rounded-xl shadow-sm p-5">
+            <div class="flex justify-between items-center mb-4 border-b pb-2">
+                <div>
+                    <h2 class="text-lg font-bold text-gray-900">Riwayat Koreksi Log Keseluruhan</h2>
+                    <p class="text-xs text-gray-500">Semua catatan transaksi telur menetas dan mati tersimpan di bawah ini</p>
+                </div>
+                <button onclick="resetSemuaData()" class="text-xs text-red-500 hover:text-red-700 font-semibold border border-red-200 hover:border-red-400 px-3 py-1 rounded transition">
+                    Reset Semua Data
+                </button>
+            </div>
+            <!-- Menggunakan layout grid responsif agar muat banyak tanpa memakan baris vertikal terlalu panjang -->
+            <div id="ageLogs" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-96 overflow-y-auto pr-1 text-xs">
+                <!-- Log data riwayat akan terisi secara dinamis -->
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -281,21 +289,22 @@
 
             ageLogs.innerHTML = '';
             if(historyLogs.length === 0) {
-                ageLogs.innerHTML = '<p class="text-gray-400 text-center py-2">Belum ada riwayat.</p>';
+                ageLogs.innerHTML = '<p class="text-gray-400 text-center py-6 col-span-full">Belum ada riwayat koreksi log yang tercatat.</p>';
             } else {
+                // Merender item log dengan susunan grid agar muat banyak secara horizontal & vertikal
                 historyLogs.forEach((log, hIndex) => {
                     const item = document.createElement('div');
-                    item.className = `p-2 rounded border border-gray-100 flex flex-col justify-between gap-1 ${log.type === 'mati' ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`;
+                    item.className = `p-3 rounded-xl border flex flex-col justify-between gap-1 shadow-sm transition hover:shadow-md ${log.type === 'mati' ? 'bg-red-50 border-red-100 text-red-700' : 'bg-green-50 border-green-100 text-green-700'}`;
                     item.innerHTML = `
                         <div class="flex justify-between items-start">
                             <div>
-                                <span class="font-bold">${log.qty} Butir ${log.type === 'mati' ? 'Mati' : 'Netas'}</span><br>
-                                <span class="text-[10px] text-gray-500">Kejadian Tgl: ${formatTanggal(log.actionDate)}</span>
+                                <span class="font-bold text-sm">${log.qty} Butir ${log.type === 'mati' ? 'Mati/Gagal' : 'Netas'}</span><br>
+                                <span class="text-[10px] text-gray-500 block mt-0.5">Tgl Kejadian: ${formatTanggal(log.actionDate)}</span>
                             </div>
-                            <span class="font-bold text-right bg-white px-1.5 py-0.5 rounded shadow-sm">Umur ${log.age} Hari</span>
+                            <span class="font-bold text-[11px] bg-white px-2 py-0.5 rounded-md shadow-sm border border-gray-100">Umur ${log.age} Hari</span>
                         </div>
-                        <div class="flex justify-end gap-2 text-[10px] mt-1 border-t border-dashed pt-1 opacity-80">
-                            <button onclick="hapusRiwayatLog(${hIndex})" class="text-red-600 hover:underline">Batalkan / Hapus</button>
+                        <div class="flex justify-end gap-2 text-[10px] mt-2 border-t border-dashed pt-1.5 opacity-90">
+                            <button onclick="hapusRiwayatLog(${hIndex})" class="text-red-600 hover:text-red-800 font-semibold hover:underline">Batalkan / Kembalikan Telur</button>
                         </div>
                     `;
                     ageLogs.appendChild(item);
@@ -307,7 +316,7 @@
         function renderData() {
             eggList.innerHTML = '';
             if (batches.length === 0) {
-                eggList.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">Inkubator kosong. Silakan tambah batch telur baru.</p>';
+                eggList.innerHTML = '<p class="text-sm text-gray-500 text-center py-12">Inkubator kosong. Silakan tambah batch telur baru di panel kiri.</p>';
                 updateDashboard();
                 return;
             }
@@ -372,22 +381,18 @@
                         </button>
                     </div>
 
-                    <!-- SUB-MENU DROPDOWN FORM (TERSEMBUNYI SECARA DEFAULT) -->
-                    <div id="subMenu-${index}" class="hidden bg-gray-50 p-3 rounded-lg border border-gray-200 transition-all text-xs">
-                        <!-- Konten submenu diisi dinamis oleh JavaScript -->
-                    </div>
+                    <!-- SUB-MENU DROPDOWN FORM -->
+                    <div id="subMenu-${index}" class="hidden bg-gray-50 p-3 rounded-lg border border-gray-200 transition-all text-xs"></div>
                 `;
                 eggList.appendChild(card);
             });
             updateDashboard();
         }
 
-        // FUNGSI UTAMA UNTUK MEMBUKA & MEMASUKKAN KODE SUB-MENU DI BAWAH KARTU BATCH
         window.bukaSubMenu = function(index, jenis) {
             const container = document.getElementById(`subMenu-${index}`);
             const batch = batches[index];
             
-            // Jika submenu yang sama diklik lagi saat terbuka, maka sembunyikan kembali
             if (!container.classList.contains('hidden') && container.dataset.active === jenis) {
                 container.classList.add('hidden');
                 return;
@@ -486,13 +491,9 @@
                 return;
             }
 
-            // Hitung umur hari secara tepat berdasarkan tanggal log kejadian yang dipilih pengguna
             const umurSaatKejadian = hitungHariSpesifik(batch.startDate, actionDate);
-
-            // Potong stok utama batch
             batch.count = parseInt(batch.count) - qty;
 
-            // Masukkan data ke array log riwayat
             historyLogs.push({
                 batchId: batch.id || null,
                 batchStart: batch.startDate,
@@ -507,7 +508,6 @@
             renderData();
         }
 
-        // Form Input Batch Awal Baru di Sisi Kiri
         eggForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const count = parseInt(document.getElementById('eggCount').value);
@@ -524,7 +524,7 @@
 
         window.hapusRiwayatLog = function(hIndex) {
             const log = historyLogs[hIndex];
-            if (confirm(`Batalkan input ini? Telur akan dikembalikan ke batch aktif.`)) {
+            if (confirm(`Batalkan input ini? Telur akan dikembangkan ke batch aktif.`)) {
                 const targetBatch = batches.find(b => b.startDate === log.batchStart);
                 if (targetBatch) {
                     targetBatch.count = parseInt(targetBatch.count) + parseInt(log.qty);
